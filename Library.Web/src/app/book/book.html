@@ -1,0 +1,97 @@
+<section class="mainbar">
+  <section class="matter">
+    <div class="container">
+      <div class="row">
+        <div class="page-content">
+          <div class="inner-box">
+            <i class="icon-docs"></i> {{page.title}} </h2>
+            <form name="bookForm" ng-submit="sendForm()" novalidate>
+              <div class="row">
+                <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="row" ng-if="book.id != null && book.id != undefined">
+                    <div class="col col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                      <div class="form-group">
+                        <label class="control-label" for="name">
+                          Código
+                        </label>
+                        <input id="code" name="id" readonly ng-value="book.id" placeholder="codigo" class="form-control input-lg" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="control-label" for="title">
+                      Título
+                    </label>
+                    <input class="form-control" type="text" id="title" required maxlength="70" ng-model="book.title" placeholder="Título">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="control-label" for="subtitle">
+                      Subtítulo
+                    </label>
+                    <input class="form-control" type="text" id="subtitle" maxlength="70" ng-model="book.subtitle" placeholder="Subtítulo">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                  <div class="form-group">
+                    <label class="control-label" for="subject">
+                      Assunto
+                    </label>
+                    <input class="form-control" type="text" required maxlength="50" id="subject" ng-model="book.subject" placeholder="Assunto">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="control-label" for="author">
+                      Autor
+                    </label>
+                    <input class="form-control" type="text" id="author" maxlength="50" required ng-model="book.author" placeholder="Autor">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label class="control-label" for="publisher">
+                      Editora
+                    </label>
+                    <input class="form-control" type="text" id="publisher" required maxlength="50" ng-model="book.publisher" placeholder="Editora">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                  <div class="form-group">
+                    <label class="control-label" for="publishDate">
+                      Data da publicação
+                    </label>
+                    <input class="form-control" type="date" id="publishDate" required ng-model="book.publishDate" placeholder="Data da publicação">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" ng-disabled="formSubCategory.$invalid">
+                      {{page.persistName}}
+                    </button>
+                    <button type="button" ng-click="returnPage()" class="btn btn-default">
+                      Voltar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
