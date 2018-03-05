@@ -1,8 +1,5 @@
-﻿using Library.Domain.Contracts;
-using Library.Domain.Entities;
-using System;
+﻿using Library.Domain.Entities;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace Library.Persistence.Extension
 {
@@ -14,17 +11,10 @@ namespace Library.Persistence.Extension
         /// <param name="query">Query expression</param>
         /// <param name="page">Page number</param>
         /// <returns></returns>
-        public static IQueryable<IEntity> GetPagination(
-            this IQueryable<IEntity> query, 
-            int page, 
-            Expression<Func<IEntity, string>> orderedBy = null)
+        public static IQueryable<Book> GetPagination(this IQueryable<Book> query, int page)
         {
             int index = page * 12;
-            if (orderedBy != null)
-            {
-                return query.OrderBy(orderedBy).Skip(index).Take(12);
-            }
-            return query.OrderBy(item => item.IncludedDate).Skip(index).Take(12);
+            return query.OrderBy(item => item.Title).Skip(index).Take(12).Where(item => !item.IsDeleted);
         }
     }
 }
